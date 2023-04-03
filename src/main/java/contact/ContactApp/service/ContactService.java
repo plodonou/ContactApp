@@ -6,6 +6,8 @@ import contact.ContactApp.integration.EmailSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+
 @Service
 public class ContactService {
 
@@ -33,4 +35,10 @@ public class ContactService {
         emailSender.sendEmail("Good By", contact.getEmail());
         contactRepository.delete(firstName);
     }
+
+    public Collection<Contact> findAll(){
+        return contactRepository.findAll();
+    }
+
+
 }
