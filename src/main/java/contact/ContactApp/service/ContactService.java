@@ -24,5 +24,8 @@ public class ContactService {
         contactRepository.save(contact);
     }
 
+    public Contact findByName(String firstName){
+       return contactRepository.findByFirstName(firstName);
+    }
 
 }
