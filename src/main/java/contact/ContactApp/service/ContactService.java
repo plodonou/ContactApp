@@ -20,5 +20,9 @@ public class ContactService {
         emailSender.sendEmail("Welcome", contact.getEmail());
     }
 
+    public void updateContact(Contact contact){
+        contactRepository.save(contact);
+    }
+
 
 }
