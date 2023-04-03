@@ -15,5 +15,8 @@ public class ContactRepository {
         contacts.put(contact.getFirstName(), contact);
     }
 
+    public Contact findByFirstName( String firstName){
+        return contacts.get(firstName);
+    }
 
 }
