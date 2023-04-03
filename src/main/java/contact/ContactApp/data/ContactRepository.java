@@ -19,4 +19,9 @@ public class ContactRepository {
         return contacts.get(firstName);
     }
 
+    public void delete( String firstName){
+        contacts.remove(firstName);
+    }
+
+
 }
