@@ -3,6 +3,7 @@ package contact.ContactApp.data;
 import contact.ContactApp.domain.Contact;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,5 +24,8 @@ public class ContactRepository {
         contacts.remove(firstName);
     }
 
+    public Collection<Contact> findAll(){
+        return contacts.values();
+    }
 
 }
