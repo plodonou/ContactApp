@@ -28,4 +28,9 @@ public class ContactService {
        return contactRepository.findByFirstName(firstName);
     }
 
+    public void delete(String firstName){
+        Contact contact = contactRepository.findByFirstName(firstName);
+        emailSender.sendEmail("Good By", contact.getEmail());
+        contactRepository.delete(firstName);
+    }
 }
