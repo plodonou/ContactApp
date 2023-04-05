@@ -14,10 +14,8 @@ public class ContactController {
     @Autowired
     ContactService contactService;
 
-
     @GetMapping("contacts/{firstName}")
     public ResponseEntity<?> getContact(@PathVariable String firstName){
-
        Contact contact = contactService.findByName(firstName);
         if (contact == null){
             return new ResponseEntity<CustomErrorType>(new CustomErrorType("Contact with firstName= "+ firstName + " is not available"),
@@ -25,17 +23,13 @@ public class ContactController {
         }
 
        return new ResponseEntity<Contact>(contact, HttpStatus.OK);
-
     }
-
 
     @PostMapping("contact")
     public ResponseEntity<Contact> addContact(@RequestBody Contact contact){
         contactService.addContact(contact);
         return new ResponseEntity<Contact>(contact, HttpStatus.OK);
-
     }
-
 
     @PutMapping("contacts/{firstName}")
     public ResponseEntity<?> update(@PathVariable String firstName, @RequestBody Contact contact){
@@ -58,6 +52,5 @@ public class ContactController {
         contactService.delete(firstName);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 
 }
