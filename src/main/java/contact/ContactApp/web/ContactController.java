@@ -49,4 +49,15 @@ public class ContactController {
         return new ResponseEntity<Contacts>(contacts,HttpStatus.OK);
     }
 
+    @DeleteMapping("contacts/{firstName}")
+    public ResponseEntity<?> deleteContact(@PathVariable String firstName){
+        Contact contact = contactService.findByName(firstName);
+        if(contact == null){
+            return new ResponseEntity<CustomErrorType>(new CustomErrorType(" Contact with firstName= " + firstName + " is not available"),HttpStatus.NOT_FOUND);
+        }
+        contactService.delete(firstName);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+
 }
